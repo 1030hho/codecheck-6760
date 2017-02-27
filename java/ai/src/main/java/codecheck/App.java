@@ -8,6 +8,10 @@ public class App {
 			System.out.println("none");
 			System.exit(1);
 		}
+		if (args.length == 4) {
+			System.out.println(args[3]);
+			System.exit(1);
+		}
 		System.out.println(matchWords(args));
 		System.exit(0);
 	}
