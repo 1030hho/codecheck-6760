@@ -9,6 +9,5 @@ cd $ROOT/java/ai
 mvn package -Dmaven.test.skip=true
 
 ### Python ###
-# cd $ROOT/python/src
-# python -m compileall .
-
+#cd $ROOT/python/src
+#python -m compileall .

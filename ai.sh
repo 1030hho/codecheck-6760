@@ -6,7 +6,7 @@ ROOT=$(cd $(dirname $0) && pwd)
 java -jar $(ls $ROOT/java/ai/target/exam2a-ai-*.jar) "$@"
 
 ### Python ###
-# python $ROOT/python/src/exam2a-ai.pyc "$@"
+#python $ROOT/python/src/exam2a-ai.pyc "$@"
 
 ### NodeJS ###
 # cd $(dirname $0)/js
