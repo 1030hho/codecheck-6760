@@ -4,10 +4,12 @@ import java.util.*;
 
 public class App {
 	public static void main(String[] args) {
-		for (int i = 0, l = args.length; i < l; i++) {
-			//	System.out.println(args[i]);
+		if (args.length < 3) {
+			System.out.println("none");
+			System.exit(1);
 		}
 		System.out.println(matchWords(args));
+		System.exit(0);
 	}
 	public static String matchWords(String[] words) {
 		char lastL = words[0].charAt(words[0].length() - 1);
@@ -24,5 +26,8 @@ public class App {
 		} else {
 			return list.get(0);
 		}
+	}
+	public static void evaluate(List<String> words) {
+
 	}
 }
