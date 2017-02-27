@@ -4,12 +4,12 @@ import java.util.*;
 
 public class App {
 	public static void main(String[] args) {
+		if (args.length == 2) {
+			System.out.println(args[1]);
+			System.exit(0);
+		}
 		if (args.length < 3) {
 			System.out.println("none");
-			System.exit(1);
-		}
-		if (args.length == 4) {
-			System.out.println(args[3]);
 			System.exit(1);
 		}
 		System.out.println(matchWords(args));

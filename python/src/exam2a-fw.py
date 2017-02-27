@@ -30,10 +30,10 @@ def getAiAns(stupAI, preword, wlist):
                             )
     return proc.communicate()[0]
 def outProgress(turn, valid, word):
-    out = turn + '˽(' + valid + '):˽' + word
+    out = turn + ' (' + valid + '): ' + word
     print  out
 def outResult(turn):
-    out = 'WIN˽-˽' + turn
+    out = 'WIN - ' + turn
     print  out
 
 def main(stupAI, preWord, wlis):

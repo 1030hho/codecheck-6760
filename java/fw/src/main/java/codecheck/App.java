@@ -29,10 +29,10 @@ public class App {
 	}
 
 	public static void outProgress(String turn, String valid) {
-		System.out.println(turn + "˽(" + valid + "):˽" + answer);
+		System.out.println(turn + " (" + valid + "): " + answer);
 	}
 	public static void outResult(String turn) {
-		System.out.println("WIN˽-˽" + turn);
+		System.out.println("WIN - " + turn);
 	}
 
 	public static String getAns(String[] arg) {
