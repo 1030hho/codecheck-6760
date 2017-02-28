@@ -28,10 +28,26 @@ public class App {
 		} else if (list.size() == 1) {
 			return list.get(0);
 		} else {
-			return list.get(0);
+			return evaluate(list, words);
 		}
 	}
-	public static void evaluate(List<String> words) {
-
+	public static String evaluate(List<String> wlist, String[] hlist) {
+		int maxHits = wlist.size();
+		String matchSt = wlist.get(0);
+		for (String w1: wlist) {
+			char lastL = w1.charAt(w1.length() - 1);
+			int count = -1;
+			for (String w2: hlist) {
+					char startL = w2.charAt(0);
+					if (startL == lastL) {
+						count += 1;
+					}
+			}
+			if (maxHits > count) {
+				matchSt = w1;
+				maxHits = count;
+			}
+		}
+		return matchSt;
 	}
 }

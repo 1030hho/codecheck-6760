@@ -52,7 +52,6 @@ public class App {
 				}
 		  }
 		} catch (IOException | InterruptedException e) {
-		  //
 			return "none";
 		}
 	}
