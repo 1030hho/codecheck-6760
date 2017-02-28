@@ -33,10 +33,10 @@ def getAiAns(stupAI, preword, wlist):
     return proc.communicate()[0]
 def outProgress(turn, valid, word):
     out = turn + ' (' + valid + '): ' + word
-    print  out
+    print out
 def outResult(turn):
     out = 'WIN - ' + turn
-    print  out
+    print out
 def checkArg(preword, wlist):
     if len(wlist) > 1000:
         sys.exit(1)
