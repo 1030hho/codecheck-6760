@@ -1,21 +1,32 @@
+//	Created By Emi Miyamoto on 2017/02/27
 package codecheck;
 
 import java.util.*;
 
 public class App {
 	public static void main(String[] args) {
-		if (args.length == 2) {
-			System.out.println(args[1]);
-			System.exit(0);
+
+		int status = checkArgs(args);
+		if (status != 2) {
+			System.exit(status);
 		}
-		if (args.length < 3) {
-			System.out.println("none");
-			System.exit(1);
-		}
-		System.out.println(matchWords(args));
+
+		System.out.println(matchWord(args));
 		System.exit(0);
 	}
-	public static String matchWords(String[] words) {
+	public static int checkArgs(String[] args) {
+		if (args.length == 2) {
+			System.out.println(args[1]);
+			return 0;
+		}
+		if (args.length <= 1) {
+			System.out.println("none");
+			return 1;
+		}
+		return 2;
+	}
+
+	public static String matchWord(String[] words) {
 		char lastL = words[0].charAt(words[0].length() - 1);
 		List<String> list = new ArrayList<String>();
 		for (String word: words) {
@@ -28,10 +39,10 @@ public class App {
 		} else if (list.size() == 1) {
 			return list.get(0);
 		} else {
-			return evaluate(list, words);
+			return feasibleWord(list, words);
 		}
 	}
-	public static String evaluate(List<String> wlist, String[] hlist) {
+	public static String feasibleWord(List<String> wlist, String[] hlist) {
 		int maxHits = wlist.size();
 		String matchSt = wlist.get(0);
 		for (String w1: wlist) {

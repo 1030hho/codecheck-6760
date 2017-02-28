@@ -7,24 +7,18 @@ import java.io.*;
 
 public class App {
 	static String ai1;// start up command of first AI
-	static String ai2;//	start up command of After AI
+	static String ai2;//	start up command of after AI
 	static String preword;
 	static String answer;
 	static String[] wlist;
+
 	public static void main(String[] args) {
-		if (args.length < 4) {
+
+		if (!checkArgs(args)) {
 			System.exit(1);
 		}
 
-		ai1 = args[0];
-		ai2 = args[1];
-		preword = args[2];
-		wlist = Arrays.copyOfRange(args, 3, args.length);
-
-		checkArg();
-
 		startShiritori();
-
 		System.exit(0);
 	}
 
@@ -88,23 +82,35 @@ public class App {
 		preword = answer;
 	}
 
-	public static void checkArg() {
-		if (wlist.length > 1000) {
-			System.exit(1);
+	public static boolean checkArgs(String[] args) {
+		if (args.length < 4) {
+			return false;
 		}
+
+		ai1 = args[0];
+		ai2 = args[1];
+		preword = args[2];
+		wlist = Arrays.copyOfRange(args, 3, args.length);
+
+		//	 amount of words must be less than 1000
+		if (wlist.length > 1000) {
+			return false;
+		}
+		//	words list must have answer to first word
 		boolean hasAns = false;
 		char lastL = preword.charAt(preword.length() - 1);
 		for (String val: wlist) {
 			if (val.length() >= 10000) {
-				System.exit(1);
+				return false;
 			}
 			if (val.charAt(0) == lastL) {
 				hasAns = true;
 			}
 		}
 		if (!hasAns) {
-			System.exit(1);
+			return false;
 		}
+		return true;
 	}
 
 	public static void startShiritori() {
